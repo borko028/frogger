@@ -30,11 +30,11 @@ Enemy.prototype.update = function(dt) {
     if (this.x < 505) {
         this.x += this.speed * dt;
     } else {
-        this.x = -101;
+        this.x = -100;
         this.y = enemyPositions[Math.floor(Math.random() * 3)]
     }
 
-    if (this.x >= player.x - 40 && this.x <= player.x + 40 && this.y >= player.y - 40 && this.y <= player.y + 40) {
+    if (this.x >= player.x - 5 && this.x <= player.x + 5 && this.y >= player.y - 5 && this.y <= player.y + 5) {
         alert("GAME OVER");
         player.reset();
     }
@@ -49,14 +49,14 @@ Enemy.prototype.render = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 var Player = function (x, y) {
-    this.reset();
     this.sprite = 'images/char-boy.png';
+    this.reset();
 };
 
 Player.prototype.update = function () {
-  if (player.y <= 45) {
-      alert("YOU WIN!");
-      player.reset();
+    if (player.y <= 1) {
+        alert("YOU WIN!");
+        player.reset();
     }
 };
 Player.prototype.render = function () {
