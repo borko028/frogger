@@ -25,13 +25,13 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 
     //all the possible enemy positions
-    var enemyPositions = [60, 140, 220]
+    var enemyPositions = [60, 140, 220];
 
     if (this.x < 505) {
         this.x += this.speed * dt;
     } else {
         this.x = -100;
-        this.y = enemyPositions[Math.floor(Math.random() * 3)]
+        this.y = enemyPositions[Math.floor(Math.random() * 3)];
     }
 
     if (this.x >= player.x - 5 && this.x <= player.x + 5 && this.y >= player.y - 5 && this.y <= player.y + 5) {
@@ -54,9 +54,9 @@ var Player = function (x, y) {
 };
 
 Player.prototype.update = function () {
-    if (player.y <= 1) {
+    if (this.y <= 1) {
         alert("YOU WIN!");
-        player.reset();
+        this.reset();
     }
 };
 Player.prototype.render = function () {
